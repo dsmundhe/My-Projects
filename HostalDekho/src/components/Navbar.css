@@ -1,0 +1,111 @@
+/* General Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 15vh;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: rgb(211, 3, 211);
+  font-weight: 700;
+}
+
+.navbar ul li {
+  font-size: 1.3rem;
+  list-style: none;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
+  font-weight: 600;
+}
+
+.navbar ul li a:hover{
+  color:rgb(255, 0, 0);
+ 
+  text-decoration: underline;
+}
+
+.loginbtn {
+  background-color: rgb(0, 255, 17);
+  padding: 10px 25px;
+  transition: 0.4s all ease-in-out;
+  border-radius: 5px;
+}
+
+.loginbtn:hover {
+  border-radius: 15px;
+  transform: scale(1.09);
+  /* box-shadow: 0px 0px 6px #000; */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 10px;
+  }
+.navbar .logo{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+  .navbar ul li {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 600;
+    border: 1px solid #000;
+    padding: 10px 60px;
+    border-radius: 5px;
+  }
+ 
+  .loginbtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .navbar ul li {
+    font-size: 1.1rem;
+  }
+
+  .loginbtn {
+    padding: 8px 20px;
+  }
+}

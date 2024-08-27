@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Chatbot</title>
+    <style>
+      body {
+        font-family: "Arial Black", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        flex-direction: column;
+        position: relative;
+      }
+
+      @keyframes glow {
+        0% {
+          text-shadow: 0 0 5px #6d6c6e, 0 0 10px #6d6c6e, 0 0 15px #007bff,
+            0 0 20px #007bff, 0 0 25px #007bff, 0 0 30px #007bff,
+            0 0 35px #007bff;
+        }
+        50% {
+          text-shadow: 0 0 10px #6d6c6e, 0 0 20px #6d6c6e, 0 0 30px #007bff,
+            0 0 40px #007bff, 0 0 50px #007bff, 0 0 60px #007bff,
+            0 0 70px #007bff;
+        }
+        100% {
+          text-shadow: 0 0 5px #6d6c6e, 0 0 10px #6d6c6e, 0 0 15px #007bff,
+            0 0 20px #007bff, 0 0 25px #007bff, 0 0 30px #007bff,
+            0 0 35px #007bff;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      #header {
+        font-family: "Castellar", serif;
+        font-size: 45px;
+        font-weight: bold;
+        color: whitesmoke;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        margin: 0;
+        padding-top: 10px;
+        text-align: center;
+        animation: glow 4s ease-in-out infinite,
+          bounce 2.5s ease-in-out infinite;
+      }
+
+      #chatbox {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        width: 650px;
+        height: 680px;
+        max-height: 100vh;
+        overflow-y: auto;
+        background: #f9f9f9;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 1), 0 4px 15px rgba(0, 0, 0, 1.1);
+        position: relative;
+        font-family: "Consolas", monospace;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        margin-bottom: 100px;
+      }
+
+      #chatbox .message-pair {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+
+      #chatbox .user-message,
+      #chatbox .bot-message {
+        padding: 10px;
+        border-radius: 5px;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      #chatbox .user-message {
+        background-color: #d0eaff;
+        color: #333;
+        text-align: left;
+      }
+
+      #chatbox .bot-message {
+        background-color: #e1e1e1;
+        color: #333;
+        text-align: left;
+        word-wrap: break-word;
+      }
+
+      #intro-textarea {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #333;
+        background: #e1e1e1;
+        font-family: "Consolas", monospace;
+        resize: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1), 0 8px 16px rgba(0, 0, 0, 0.8);
+      }
+
+      #input-container {
+        position: fixed;
+        bottom: 25px;
+        left: 10px;
+        width: calc(100% - 20px);
+        display: flex;
+        align-items: center;
+        z-index: 1;
+      }
+
+      #input {
+        flex: 1;
+        box-sizing: border-box;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 29px;
+        background: #fff;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 1), 0 8px 16px rgba(0, 0, 0, 0.8);
+        font-size: 14px;
+        color: #333;
+        line-height: 1.4;
+        font-family: "Consolas", monospace;
+        height: 60px;
+      }
+
+      #send-button {
+        margin-left: 10px;
+        padding: 10px;
+        border: none;
+        border-radius: 50%;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+        transition: background 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      }
+
+      #send-button:hover {
+        background-color: #0056b3;
+      }
+
+      #send-button svg {
+        fill: white;
+        width: 20px;
+        height: 20px;
+      }
+
+      #suggestions {
+        position: fixed;
+        bottom: 100px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1;
+      }
+
+      #suggestions h2 {
+        font-size: 18px;
+        color: #fff;
+        margin: 0 0 10px 0;
+        padding: 0;
+        font-family: "Castellar", serif;
+      }
+
+      .suggestion-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        cursor: pointer;
+        font-size: 14px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+        transition: background 0.3s ease;
+      }
+
+      .suggestion-button:hover {
+        background-color: #0056b3;
+      }
+
+      #typing-indicator {
+        position: absolute;
+        right: 0;
+        top: 150px;
+        width: 350px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        font-family: "Consolas", monospace;
+        z-index: 2;
+        margin-right: 20px;
+        overflow: hidden;
+        max-height: 80vh;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #fff;
+        }
+      }
+
+      #typing-indicator p {
+        margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+
+      .typing-effect {
+        display: inline-block;
+        white-space: pre-wrap;
+        max-width: 100%;
+        overflow: hidden;
+        border-right: 0px solid #333;
+        animation: typing 1.5s steps(40, end),
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @media (max-width: 768px) {
+        #header {
+          font-size: 35px;
+        }
+
+        #chatbox {
+          width: 100%;
+          height: auto;
+          padding: 15px;
+          margin-bottom: 60px;
+        }
+
+        #input-container {
+          bottom: 15px;
+          left: 5px;
+          width: calc(100% - 10px);
+        }
+
+        #input {
+          height: 50px;
+          font-size: 12px;
+          width: 10px;
+        }
+
+        #send-button {
+          font-size: 18px;
+          padding: 8px;
+        }
+
+        #suggestions {
+          bottom: 80px;
+          left: 5px;
+          width: 100px;
+          height: 120vh;
+          display: grid;
+          display: none;
+        }
+
+        #typing-indicator {
+          width: 100%;
+          margin-right: 0;
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">Wizardo Welcomes You</div>
+    <div id="chatbox">
+      <textarea id="intro-textarea" readonly>
+Wizardo always helps you!!</textarea
+      >
+    </div>
+    <div id="input-container">
+      <textarea
+        id="input"
+        rows="3"
+        placeholder="How can I help you?"
+      ></textarea>
+      <button id="send-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M12 21l-1.41-1.41L17.17 14H3v-2h14.17L10.59 4.41 12 3l9 9-9 9z"
+          />
+        </svg>
+      </button>
+    </div>
+    <div id="suggestions">
+      <h2>Generally Asked Questions</h2>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('I need assistance')"
+      >
+        I need assistance
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('Need help regarding specialized domain or field')"
+      >
+        Need help regarding specialized domain or field
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('What is your website helpful for')"
+      >
+        What is your website helpful for?
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('What does your website do')"
+      >
+        What does your website do?
+      </button>
+      <button class="suggestion-button" onclick="handleSuggestion('Help me')">
+        Help me
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('Tell me more about your services')"
+      >
+        Tell me more about your services
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('Can you assist with learning assessments')"
+      >
+        Can you assist with learning assessments?
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('How can I book a mentor on your website')"
+      >
+        How can I book a mentor on your website?
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('How can I use the resume builder')"
+      >
+        How can I use the resume builder?
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('How can I register as a mentor')"
+      >
+        How can I register as a mentor?
+      </button>
+      <button
+        class="suggestion-button"
+        onclick="handleSuggestion('How can I join as a trainee')"
+      >
+        How can I join as a trainee?
+      </button>
+    </div>
+    <div id="typing-indicator">
+      <p>
+        Hey Wizardo here!!<br />
+        I can help you in my specialized <br />educational domains.This is the
+        chatbot <br />for educational purposes made by<br />
+        <strong>THE CAREER COMPANY</strong>.
+      </p>
+    </div>
+    <script src="chatbot.js"></script>
+  </body>
+</html>

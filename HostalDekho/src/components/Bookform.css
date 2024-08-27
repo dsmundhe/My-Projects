@@ -1,0 +1,124 @@
+.bookform-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.bookform-container h2{
+    text-align: center;
+}
+.hostel-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 600px;
+}
+.bookform-container .logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.bookform-container .logo img{
+    width: 100px;
+}
+.booking-form {
+  margin-top: 10px;
+}
+
+.booking-form input,
+.booking-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.booking-form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.booking-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Bookform.css */
+
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.message {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.message h1 {
+  font-size: 24px;
+  color: #007bff;
+}
+
+.logo1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo1 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.name {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.name h2 {
+  font-size: 20px;
+  color: #333;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.heading h1 {
+  font-size: 28px;
+  color: #007bff;
+}
+
+.info {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.info p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.btn button{
+  width: 150px;
+}
+
+.btn button a{
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}

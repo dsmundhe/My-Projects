@@ -1,0 +1,100 @@
+/* Basic styling */
+.mainbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainbox .btn{
+  width:150px ;
+}
+.mainbox .btn a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+.formbox {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="radio"],
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+button {
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+button[type="reset"] {
+  background-color: #d9534f;
+}
+
+button[type="reset"]:hover {
+  background-color: #c9302c;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .formbox {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  form div {
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  input[type="radio"],
+  button {
+    padding: 8px;
+  }
+}

@@ -1,0 +1,282 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+}
+
+.head {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.head ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.head ul li {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  list-style: none;
+}
+
+.head ul li:hover {
+  color: #007bff;
+}
+
+.homebox {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.leftbox,
+.rightbox {
+  flex: 1;
+  padding: 20px;
+}
+.leftbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rightbox h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.infobox {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.heading h1 {
+  font-size: 36px;
+  color: #333;
+  margin: 0;
+}
+
+.heading h1 span {
+  color: #007bff;
+}
+
+.about {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.btns {
+  margin-top: 20px;
+}
+
+.btns button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100px;
+  transition: background-color 0.3s ease;
+}
+.btns button a{
+  text-decoration: none;
+  color:#fff;
+}
+.btns button:hover {
+  background-color: #0056b3;
+}
+
+.rightbox {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-height: 400px; /* Adjust height as needed */
+  overflow-y: auto;
+}
+
+.footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* College List Styles */
+.college-item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.college-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.college-details {
+  display: flex;
+  align-items: center;
+}
+
+.college-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.college-name {
+  font-size: 1.5rem;
+  margin: 0 0 10px;
+  color: #007bff;
+}
+
+.college-location,
+.college-ranking {
+  margin: 0;
+  color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .homebox {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .head ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .head ul li {
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading h1 {
+    font-size: 28px;
+  }
+
+  .btns button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .about {
+    font-size: 14px;
+  }
+
+  .college-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  .college-name {
+    font-size: 1.2rem;
+  }
+
+  .college-location,
+  .college-ranking {
+    font-size: 0.9rem;
+  }
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+}
+ 
+.bookseebox{
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.bookseebox button{
+  width: 250px;
+  height: 60px;
+  background-color: #6197d1;
+}
+.bookseebox button a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
