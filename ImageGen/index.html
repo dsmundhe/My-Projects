@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Education Application Structure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: red;
+            margin:5px 0;
+            width: 100%;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        table {
+            width: 48%;
+            border-collapse: collapse;
+             background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 15px;
+            border-radius:10px;
+        }
+
+        th,
+        td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+         }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 2px;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                font-size: 14px;
+                width: 100%;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Smart Education Application Structure</h1>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Page</th>
+                <th>Features</th>
+            </tr>
+            <tr>
+                <td>Home Page</td>
+                <td>
+                    <ul>
+                        <li>Hero Section: Introduction to Smart Education, its goals, and benefits.</li>
+                        <li>Features Overview: Highlight key features like personalized learning and interactive
+                            content.</li>
+                        <li>Call to Action (CTA): Sign up or Log in buttons.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Sign Up / Log In</td>
+                <td>
+                    <ul>
+                        <li>Sign Up Form: Register using email, social media, or SSO.</li>
+                        <li>Log In Form: Access with credentials or social media/SSO.</li>
+                        <li>Password Recovery: Option to reset password.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Dashboard</td>
+                <td>
+                    <ul>
+                        <li>User Profile: Display user information and progress.</li>
+                        <li>Learning Path: Personalized paths based on goals and progress.</li>
+                        <li>Course Recommendations: Suggest courses based on user interests.</li>
+                        <li>Notifications: Updates on new courses and assignments.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Courses Page</td>
+                <td>
+                    <ul>
+                        <li>Course Catalog: List of available courses with filters.</li>
+                        <li>Course Details: Syllabus, instructor details, reviews.</li>
+                        <li>Enroll Button: Enroll in the course.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Course Player</td>
+                <td>
+                    <ul>
+                        <li>Video Lectures: Integrated video player.</li>
+                        <li>Interactive Quizzes: Embedded quizzes for knowledge testing.</li>
+                        <li>Notes Section: Feature for taking notes.</li>
+                        <li>Discussion Forum: Ask questions and discuss topics.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Assignments and Assessments</td>
+                <td>
+                    <ul>
+                        <li>Assignments Submission: Submit assignments.</li>
+                        <li>Grading System: Automatically or manually grade assignments.</li>
+                        <li>Progress Tracker: Display progress and results.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Page</th>
+                <th>Features</th>
+            </tr>
+            <tr>
+                <td>Mentorship and Support</td>
+                <td>
+                    <ul>
+                        <li>Mentorship Program: Connect learners with mentors.</li>
+                        <li>Chat Feature: Real-time chat for communication.</li>
+                        <li>Help Center: FAQs, guides, and support options.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Learning Analytics</td>
+                <td>
+                    <ul>
+                        <li>Performance Analytics: Visualize learner’s progress.</li>
+                        <li>Completion Certificates: Generate certificates upon course completion.</li>
+                        <li>Leaderboard: Competitive ranking system.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Community</td>
+                <td>
+                    <ul>
+                        <li>Discussion Forums: Topic-specific discussions.</li>
+                        <li>Groups: Create or join study groups.</li>
+                        <li>Events: Information about webinars, workshops.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Admin Panel (For Admins)</td>
+                <td>
+                    <ul>
+                        <li>User Management: Manage users, roles, permissions.</li>
+                        <li>Course Management: Add, update, or remove courses.</li>
+                        <li>Analytics Dashboard: Overview of platform usage and engagement.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Additional Features</td>
+                <td>
+                    <ul>
+                        <li>Responsive Design: Fully responsive across all devices.</li>
+                        <li>Dark/Light Mode: Theme switcher for user comfort.</li>
+                        <li>Multilingual Support: Support for multiple languages.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Backend Features</td>
+                <td>
+                    <ul>
+                        <li>RESTful API: User management, course content, analytics.</li>
+                        <li>Authentication & Authorization: JWT for secure authentication.</li>
+                        <li>Database Design: MongoDB for storing data and progress tracking.</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
