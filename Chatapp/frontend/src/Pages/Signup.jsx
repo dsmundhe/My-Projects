@@ -73,7 +73,7 @@ function Signup() {
     }
     const submitHandler = async () => {
         setloading(true)
-        if (!name || !password || !email || !confirmpass || !pic) {
+        if (!name || !password || !email || !confirmpass ) {
             toast({
                 title: 'Fill All the states!',
                 description: "Fill form",
@@ -107,7 +107,7 @@ function Signup() {
                 email: email,
                 password: password,
                 confirmpass: confirmpass,
-                pic: pic,
+                // pic: pic,
             }, config);
 
             localStorage.setItem('userInfo', JSON.stringify(data));

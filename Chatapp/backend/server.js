@@ -13,7 +13,7 @@ dbConnect();
 app.use(express.json());
 
 app.use("/user", userRouter);
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log("server started....");
 });
