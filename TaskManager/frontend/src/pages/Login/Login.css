@@ -1,0 +1,26 @@
+.logincss input {
+  border: 1px solid rgb(207, 197, 197);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.logincss input::placeholder{
+    padding: 10px 10px;
+    font-weight: 500;
+}
+
+.logincss {
+  display: flex;
+  flex-direction: column;
+}
+.logincss input {
+  margin-top: 5px;
+}
+
+.logincss button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: royalblue;
+  margin-top: 20px;
+  color: white;
+}
